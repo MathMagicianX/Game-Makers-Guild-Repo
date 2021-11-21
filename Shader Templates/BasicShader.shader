@@ -24,20 +24,20 @@ Shader "MyShaders/BasicShader"
 
             struct vertexInput
             {
-                float4 vertex : POSITION;
+                float4 vertexPosition : POSITION;
                 float2 uv : TEXCOORD0;
             };
 
             struct fragmentInput
             {
+                float4 clipPosition : SV_POSITION;
                 float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
             };
 
             fragmentInput vertex (vertexInput v_input)
             {
                 fragmentInput f_input;
-                f_input.vertex = UnityObjectToClipPos(v_input.vertex);
+                f_input.clipPosition = UnityObjectToClipPos(v_input.vertexPosition);
                 f_input.uv = TRANSFORM_TEX(v_input.uv, _MainTex);
                 return f_input;
             }
