@@ -1,4 +1,4 @@
-Shader "MyShaders/BasicShader"
+Shader "MyShaders/DepthShader"
 {
     Properties
     {
